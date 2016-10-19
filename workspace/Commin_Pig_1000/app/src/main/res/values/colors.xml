@@ -5,4 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <color name="Color_BLACK">#000000</color>
 
+
+
+    <color name="MonkeyColor_GrayCD">#cdcdcd</color>
+    <color name="MonkeyColor_GrayEE">#EEEEEE</color>
+    <color name="MonkeyColor_WhiteFA">#FAFAFA</color>
+
+
+
 </resources>

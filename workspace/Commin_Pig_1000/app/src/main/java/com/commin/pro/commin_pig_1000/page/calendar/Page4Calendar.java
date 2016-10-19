@@ -1,6 +1,5 @@
-package com.commin.pro.commin_pig_1000.page;
+package com.commin.pro.commin_pig_1000.page.calendar;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -14,10 +13,10 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Page4Calendar extends com.commin.pro.commin_pig_1000.Application {
-    private TextView tvDate;
+    private TextView tv_date;
     private Adapter4Calendar gridAdapter;
     private ArrayList<String> dayList;
-    private GridView gridView;
+    private GridView gv_calendar;
     private Calendar mCal;
 
     @Override
@@ -28,8 +27,8 @@ public class Page4Calendar extends com.commin.pro.commin_pig_1000.Application {
     }
 
     private void createGUI() {
-        tvDate = (TextView) findViewById(R.id.tv_date);
-        gridView = (GridView) findViewById(R.id.gv_calendar);
+        tv_date = (TextView) findViewById(R.id.tv_date);
+        gv_calendar = (GridView) findViewById(R.id.gv_calendar);
 
         long now = System.currentTimeMillis();
 
@@ -42,7 +41,7 @@ public class Page4Calendar extends com.commin.pro.commin_pig_1000.Application {
 
         final SimpleDateFormat curDayFormat = new SimpleDateFormat("dd", Locale.KOREA);
 
-        tvDate.setText(curYearFormat.format(date) + "/" + curMonthFormat.format(date));
+        tv_date.setText(curYearFormat.format(date) + "/" + curMonthFormat.format(date));
 
 
         //gridview 요일 표시
@@ -80,7 +79,7 @@ public class Page4Calendar extends com.commin.pro.commin_pig_1000.Application {
         }
         setCalendarDate(mCal.get(Calendar.MONTH) + 1);
         gridAdapter = new Adapter4Calendar(getApplicationContext(), dayList);
-        gridView.setAdapter(gridAdapter);
+        gv_calendar.setAdapter(gridAdapter);
 
     }
 
