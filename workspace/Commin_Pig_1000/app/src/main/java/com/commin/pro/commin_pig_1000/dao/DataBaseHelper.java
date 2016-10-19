@@ -37,13 +37,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void insert(String value, String date, int type) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES (null,'" + value + "','" +
+        UtilDB.execSQL(db, "INSERT INTO " + TABLE_NAME + " VALUES (null,'" + value + "','" +
                 date + "'," +
                 type + ");");
-        db.close();
-//        UtilDB.execSQL(db, "INSERT INTO " + TABLE_NAME + " VALUES (null,'" + value + "','" +
-//                date + "'," +
-//                type + ");");
     }
 
     public void deleteAll() {
