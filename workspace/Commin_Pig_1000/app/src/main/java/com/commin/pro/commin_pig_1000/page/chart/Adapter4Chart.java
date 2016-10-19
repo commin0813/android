@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
+import com.commin.pro.commin_pig_1000.R;
 import com.commin.pro.commin_pig_1000.model.Model4Chart;
 
 import java.util.ArrayList;
@@ -35,8 +37,12 @@ public class Adapter4Chart extends ArrayAdapter<Model4Chart> {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(resource, null);
         }
+        Model4Chart model = items.get(position);
+        final TextView tv_item_value = (TextView) view.findViewById(R.id.tv_item_value);
+        tv_item_value.setText(model.getDeposit_value());
 
-
+        final TextView tv_item_date = (TextView) view.findViewById(R.id.tv_item_date);
+        tv_item_date.setText(model.getDeposit_date());
         return view;
     }
 }

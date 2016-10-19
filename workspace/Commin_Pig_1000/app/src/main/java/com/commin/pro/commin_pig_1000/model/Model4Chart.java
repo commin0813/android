@@ -9,7 +9,7 @@ import java.util.Date;
 public class Model4Chart implements Serializable {
     private String deposit_value;
     private String total_deposit_value;
-    private Date deposit_date;
+    private String deposit_date;
 
     public String getDeposit_value() {
         return deposit_value;
@@ -19,11 +19,11 @@ public class Model4Chart implements Serializable {
         this.deposit_value = deposit_value;
     }
 
-    public Date getDeposit_date() {
+    public String getDeposit_date() {
         return deposit_date;
     }
 
-    public void setDeposit_date(Date deposit_date) {
+    public void setDeposit_date(String deposit_date) {
         this.deposit_date = deposit_date;
     }
 

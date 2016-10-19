@@ -89,8 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="1dp"
-            android:layout_weight="7"
-            android:background="@color/MonkeyColor_GrayCD"></ListView>
+            android:layout_weight="7" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -105,6 +104,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:id="@+id/btn_menu"
                 android:background="@android:drawable/dialog_holo_light_frame"
                 android:text="MENU" />
 
@@ -121,7 +121,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@android:drawable/dialog_holo_light_frame"
                 android:text="추가" />
 
 

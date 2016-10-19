@@ -37,26 +37,38 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void insert(String value, String date, int type) {
         SQLiteDatabase db = getWritableDatabase();
-        UtilDB.execSQL(db, "INSERT INTO " + TABLE_NAME + " VALUES (null,'" + value + "','" +
+        db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES (null,'" + value + "','" +
                 date + "'," +
                 type + ");");
+        db.close();
+//        UtilDB.execSQL(db, "INSERT INTO " + TABLE_NAME + " VALUES (null,'" + value + "','" +
+//                date + "'," +
+//                type + ");");
+    }
+
+    public void deleteAll() {
+        SQLiteDatabase db = getWritableDatabase();
+        UtilDB.execSQL(db, "DELETE FROM " + TABLE_NAME + ";");
     }
 
     public ArrayList<Model4Chart> getResult() {
         SQLiteDatabase db = getReadableDatabase();
-        Model4Chart model = new Model4Chart();
+
         ArrayList<Model4Chart> models = new ArrayList<Model4Chart>();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()) {
+            Model4Chart model = new Model4Chart();
             String value = cursor.getString(1);
             String date = cursor.getString(2);
             int type = cursor.getInt(3);
-            if(type ==1){//
-
-            } else if (type ==2) {//
+            if (type == 1) {//
+                model.setDeposit_value(value);
+                model.setDeposit_date(date);
+            } else if (type == 2) {//
 
             }
+            models.add(model);
 
         }
 
