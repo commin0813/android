@@ -12,6 +12,7 @@ import com.commin.pro.commin_pig_1000.R;
 import com.commin.pro.commin_pig_1000.dao.DataBaseHelper;
 import com.commin.pro.commin_pig_1000.model.Model4Chart;
 import com.commin.pro.commin_pig_1000.page.calendar.Adapter4Calendar;
+import com.commin.pro.commin_pig_1000.util.UtilCalculate;
 import com.commin.pro.commin_pig_1000.util.UtilDate;
 
 import java.text.DateFormat;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class Page4Chart extends AppCompatActivity {
 
-    private Button btn_tv_imsi_deposit, btn_tv_confirm_deposit, btn_add_deposit,btn_menu;
+    private Button btn_tv_imsi_deposit, btn_tv_confirm_deposit, btn_add_deposit, btn_menu;
     private EditText ed_deposit;
     private ListView lst_deposit;
 
@@ -45,7 +46,7 @@ public class Page4Chart extends AppCompatActivity {
         btn_tv_imsi_deposit = (Button) findViewById(R.id.btn_tv_imsi_deposit);
         btn_tv_confirm_deposit = (Button) findViewById(R.id.btn_tv_confirm_deposit);
 
-        btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_menu = (Button) findViewById(R.id.btn_menu);
         btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +63,7 @@ public class Page4Chart extends AppCompatActivity {
                     return;
                 }
                 addValue(value);
+                btn_add_deposit.setText("");
             }
         });
 
@@ -83,13 +85,21 @@ public class Page4Chart extends AppCompatActivity {
 
         items.clear();
         ArrayList<Model4Chart> item = dataBaseHelper.getResult();
-        if(item.size()==0){
+        if (item.size() == 0) {
+            btn_tv_imsi_deposit.setText("0");
             adapter4Chart.notifyDataSetChanged();
             return;
         }
-        for(Model4Chart model4Chart : item){
+        String[] elements = new String[item.size()];
+        int i = 0;
+        for (Model4Chart model4Chart : item) {
+            elements[i] = model4Chart.getDeposit_value();
+            i++;
             items.add(model4Chart);
         }
+
+        String value_result = UtilCalculate.Addition(elements);
+        btn_tv_imsi_deposit.setText(value_result);
 
         adapter4Chart.notifyDataSetChanged();
 
@@ -99,4 +109,5 @@ public class Page4Chart extends AppCompatActivity {
         dataBaseHelper.insert(value, UtilDate.format(new Date()), 1);
         queryList();
     }
+
 }
