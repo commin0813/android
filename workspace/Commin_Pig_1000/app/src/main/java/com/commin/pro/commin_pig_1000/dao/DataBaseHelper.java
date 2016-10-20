@@ -72,7 +72,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         UtilDB.execSQL(db, "DELETE FROM " + TABLE_NAME + " WHERE _id=" + key + ";");
     }
 
-    public ArrayList<Model4Chart> getResult_normal() {
+    public ArrayList<Model4Chart> getResult_normal() {//query
         SQLiteDatabase db = getReadableDatabase();
 
         ArrayList<Model4Chart> models = new ArrayList<Model4Chart>();
@@ -105,7 +105,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return models;
     }
 
-    public ArrayList<Model4Chart> getResult_total() {
+    public ArrayList<Model4Chart> getResult_total() {//query
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<Model4Chart> models = new ArrayList<Model4Chart>();
 
