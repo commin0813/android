@@ -114,7 +114,7 @@ public class Page4Chart extends AppCompatActivity {
             }
         });
 
-        adapter4Chart = new Adapter4Chart(this, R.layout.item_chart, R.layout.item_chart_2, items);
+        adapter4Chart = new Adapter4Chart(this, R.layout.item_chart, items);
         lst_deposit.setAdapter(adapter4Chart);
 
         queryList();
@@ -162,10 +162,13 @@ public class Page4Chart extends AppCompatActivity {
         for (Model4Chart model4Chart : item) {
             if (model4Chart.getType() != ApplicationProperty.SAVE_TYPE_TOTAL) {
                 elements[i] = model4Chart.getDeposit_value();
+
             } else {
                 elements[i] = "0";
+                model4Chart.setDeposit_date("입금완료");
             }
             i++;
+
             items.add(model4Chart);
         }
 
@@ -195,7 +198,7 @@ public class Page4Chart extends AppCompatActivity {
         }
         if (type == ApplicationProperty.SAVE_TYPE_TOTAL) {
             dataBaseHelper.updateSTATUS(ApplicationProperty.DEPOSIT_STATUS_COMPLETE);
-            dataBaseHelper.insert(value, type);
+            dataBaseHelper.insert(value, UtilDate.format(new Date()), type);
         } else {
             dataBaseHelper.insert(value, UtilDate.format(new Date()), type);
         }

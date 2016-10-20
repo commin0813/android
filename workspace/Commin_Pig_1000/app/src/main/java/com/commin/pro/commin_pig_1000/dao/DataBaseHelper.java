@@ -54,14 +54,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ApplicationProperty.DEPOSIT_STATUS_NORMAL + ");");
     }
 
-    public void insert(String value, int type) {
-        SQLiteDatabase db = getWritableDatabase();
-        UtilDB.execSQL(db, "INSERT INTO " + TABLE_NAME + " VALUES (null,'" + value + "','" +
-                "입금완료'," +
-                type + "," +
-                ApplicationProperty.DEPOSIT_STATUS_NORMAL + ");");
-    }
-
     public void insert_result(String value, String date) {
         SQLiteDatabase db = getWritableDatabase();
         UtilDB.execSQL(db, "INSERT INTO " + TABLE_NAME_RESULT + " VALUES (null,'" + value + "','" +
@@ -85,7 +77,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         ArrayList<Model4Chart> models = new ArrayList<Model4Chart>();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY _id DESC", null);
         while (cursor.moveToNext()) {
             Model4Chart model = new Model4Chart();
             int id = cursor.getInt(0);
