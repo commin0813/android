@@ -10,6 +10,9 @@ public class Model4Chart implements Serializable {
     private String deposit_value;
     private String total_deposit_value;
     private String deposit_date;
+    private int type;
+    private int id;
+    private int status; // 0 : normal ,  1 : complete
 
     public String getDeposit_value() {
         return deposit_value;
@@ -33,5 +36,29 @@ public class Model4Chart implements Serializable {
 
     public void setTotal_deposit_value(String total_deposit_value) {
         this.total_deposit_value = total_deposit_value;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

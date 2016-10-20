@@ -23,24 +23,23 @@
 
             <Button
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:drawable/dialog_holo_light_frame"
                 android:editable="false"
-                android:text="예상금액" />
+                android:text="금액" />
 
             <Button
                 android:id="@+id/btn_tv_imsi_deposit"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="3.5"
                 android:background="@android:drawable/dialog_holo_light_frame"
-                android:editable="false"
                 android:text="0" />
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="left|center_vertical"
                 android:text="원"
@@ -59,16 +58,16 @@
 
             <Button
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:drawable/dialog_holo_light_frame"
                 android:editable="false"
-                android:text="확정예금" />
+                android:text="저금" />
 
             <Button
                 android:id="@+id/btn_tv_confirm_deposit"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="3.5"
                 android:background="@android:drawable/dialog_holo_light_frame"
                 android:editable="false"
@@ -76,7 +75,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="left|center_vertical"
                 android:text="원"
